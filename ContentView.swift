@@ -10,35 +10,12 @@ var buttonTextSize = CGFloat(buttonSize * 3/4)
 
 // Test rotation stuff
 // call our action
-struct DeviceRotationViewModifier: ViewModifier {
-    let action: (UIDeviceOrientation) -> Void
-
-    func body(content: Content) -> some View {
-        content
-            .onAppear()
-            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-                action(UIDevice.current.orientation)
-            }
-    }
-}
-
-// A View wrapper to make the modifier easier to use
-extension View {
-    func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
-        self.modifier(DeviceRotationViewModifier(action: action))
-    }
-}
 
        
 struct ContentView: View {
-    @State private var orientation = UIDeviceOrientation.unknown
-
+    
     var body: some View {
-        Group {
-                   if orientation.isPortrait {
-                       Text("Portrait")
-                   } else if orientation.isLandscape {
-                       Text("Landscape")
+       
                        HStack(
                            alignment: .center,
                            spacing: 10)
@@ -166,15 +143,7 @@ struct ContentView: View {
                            }
                        }
                        
-                   } else if orientation.isFlat {
-                       Text("Flat??")
-                   } else {
-                       Text("Unknown Change Device rotation!!!!")
-                   }
-               }
-               .onRotate { newOrientation in
-                   orientation = newOrientation
-               }
+                
         
             VStack(
                 alignment: .center,
