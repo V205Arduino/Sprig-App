@@ -4,7 +4,7 @@ import SwiftUI//The stuff...
 var buttonDistance = 10; //? WIP
 var buttonColor = Color.secondary
 var buttonTextColor = Color.primary
-var buttonSize = CGFloat(100)
+var buttonSize = CGFloat(50)
 var buttonTextSize = CGFloat(buttonSize * 3/4)
 
 
@@ -57,7 +57,7 @@ struct ContentView: View {
                                    Text("S")
                                        .frame(width: buttonSize, height: buttonSize)
                                        .font(.system(size: buttonTextSize, weight: .heavy, design: .rounded))
-                                   
+                           
                                        .foregroundColor(buttonTextColor)
                                        .background(buttonColor)
                                        .clipShape(Circle())
@@ -79,6 +79,8 @@ struct ContentView: View {
                                
                            }
                            
+                           
+                           WebView(request: URLRequest(url: URL(string:  "https://www.instructables.com")!))
                            
                            Button(action: {
                                print("J Action")
