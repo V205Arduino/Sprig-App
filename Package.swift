@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Sprig-App",
+    name: "Sprig",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "Sprig-App",
+            name: "Sprig",
             targets: ["AppModule"],
             displayVersion: "0.1",
             bundleVersion: "1",
